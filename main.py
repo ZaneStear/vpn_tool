@@ -16,6 +16,7 @@ def check_in():
             header['name'] = str(header['name']).lstrip(':')
         head[header['name']] = header['value']
     result = requests.post(url, headers=head)
+    print(headers)
     print("签到结束: "+result.text)
 
 
