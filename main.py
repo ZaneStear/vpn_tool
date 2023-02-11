@@ -1,5 +1,5 @@
 import json
-import requests
+import cloudscraper
 from pathlib import Path
 
 
@@ -15,8 +15,7 @@ def check_in():
         if str(header['name']).startswith(':'):
             header['name'] = str(header['name']).lstrip(':')
         head[header['name']] = header['value']
-    result = requests.post(url, headers=head)
-    print(headers)
+    result = cloudscraper.create_scraper().post(url, headers=head)
     print("签到结束: "+result.text)
 
 
